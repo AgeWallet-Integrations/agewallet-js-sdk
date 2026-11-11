@@ -13,5 +13,15 @@ export default defineConfig({
 
     // 4. Clean up output
     reporters: ['default'],
+
+    // 5. Fails any test that reaches the network without stubbing fetch
+    setupFiles: ['tests/setup.js'],
+
+    // 6. `vitest run --coverage`: line coverage of src/, printed and written to coverage/coverage.txt
+    coverage: {
+      provider: 'v8',
+      include: ['src/**'],
+      reporter: ['text', ['text', { file: 'coverage.txt' }]],
+    },
   }
 });

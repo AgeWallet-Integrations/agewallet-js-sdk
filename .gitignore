@@ -4,6 +4,9 @@ node_modules/
 # Build Output (Vite)
 dist/
 
+# Test coverage (vitest run --coverage)
+coverage/
+
 # Local Netlify State
 .netlify/
 
