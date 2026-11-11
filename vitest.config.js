@@ -23,5 +23,12 @@ export default defineConfig({
       include: ['src/**'],
       reporter: ['text', ['text', { file: 'coverage.txt' }]],
     },
+
+    // 7. Turns off Node's own Web Storage (on by default from Node 25), whose empty
+    //    localStorage and sessionStorage globals would hide happy-dom's
+    poolOptions: {
+      threads: { execArgv: ['--no-experimental-webstorage'] },
+      forks: { execArgv: ['--no-experimental-webstorage'] },
+    },
   }
 });
